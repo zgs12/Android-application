@@ -2,6 +2,10 @@ package com.example.myapplication.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.myapplication.mvp.presenter.LifeCircleMvpPresenter;
 
@@ -30,17 +34,12 @@ public class MvpControler implements ILifeCycle {
     }
 
     @Override
-    public void onActivityCreated(Bundle saveInstanceState, Intent intent, Bundle getArguments) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Iterator<ILifeCycle> iterator = this.lifeCircles.iterator();
         while (iterator.hasNext()) {
             ILifeCycle next = iterator.next();
-            if (intent == null) {
-                intent = new Intent();
-            }
-            if (getArguments == null) {
-                getArguments = new Bundle();
-            }
-            next.onActivityCreated(saveInstanceState, intent, getArguments);
+
+            next.onViewCreated(view, savedInstanceState);
         }
     }
 
@@ -167,7 +166,10 @@ public class MvpControler implements ILifeCycle {
         }
     }
 
+
     public <T extends IMvpView> void savePresenter(LifeCircleMvpPresenter<T> tLifeCircleMvpPresenter) {
         this.lifeCircles.add(tLifeCircleMvpPresenter);
     }
+
+
 }

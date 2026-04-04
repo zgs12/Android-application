@@ -1,0 +1,54 @@
+package com.example.myapplication.main;
+
+import androidx.fragment.app.Fragment;
+
+import com.example.myapplication.mvp.ILifeCycle;
+import com.example.myapplication.mvp.IMvpView;
+import com.example.myapplication.mvp.MvpControler;
+
+
+public interface IMainActivityContract {
+    IMainActivityContract.IView emptyView = new IMainActivityContract.IView() {
+
+
+        @Override
+        public void showFragment(Fragment mFragment) {
+
+        }
+
+        @Override
+        public void addFragment(Fragment mFragment) {
+
+
+        }
+
+        @Override
+        public void hideFragment(Fragment mFragment) {
+
+        }
+
+        @Override
+        public MvpControler getMvpControler() {
+            return null;
+        }
+    };
+
+    interface IView extends IMvpView {
+        void showFragment(Fragment mFragment);
+
+        void addFragment(Fragment mFragment);
+
+        void hideFragment(Fragment mFragment);
+    }
+
+    interface IPresenter extends ILifeCycle {
+        void initHomeFragment();
+
+        int getCurrentCheckedIndex();
+
+        void replaceFragment(int i);
+
+//        void initHomeFragment();
+    }
+
+}

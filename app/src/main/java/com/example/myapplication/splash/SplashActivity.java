@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.splash;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -8,11 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.myapplication.base.BaseActivity;
+import com.example.myapplication.FullScreenVideoView;
+import com.example.myapplication.main.MainActivity;
+import com.example.myapplication.R;
+import com.example.myapplication.ViewInject;
 import com.example.myapplication.databinding.ActivitySplashBinding;
 
 
 @ViewInject(mainlayoutid = R.layout.activity_splash)
-public class SplashActivity extends BaseActivity implements ISplashActivityContract.IView{
+public class SplashActivity extends BaseActivity implements ISplashActivityContract.IView {
     private FullScreenVideoView mVideoView;
     private TextView mTvTimer;
     private com.example.myapplication.databinding.ActivitySplashBinding binding;

@@ -2,12 +2,16 @@ package com.example.myapplication.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public interface ILifeCycle {
 
-
     void onCreate(Bundle saveInstanceState, Intent intent, Bundle getArguments);
-    void onActivityCreated(Bundle saveInstanceState, Intent intent, Bundle getArguments);
+
+    void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState);
     void onStart();
     void onResume();
     void onPause();
@@ -22,4 +26,5 @@ public interface ILifeCycle {
     void attachView();
 
     void onActivityCreate(Bundle savedInstanceState, Intent intent, Object o);
+
 }

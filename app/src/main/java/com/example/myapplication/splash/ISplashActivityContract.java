@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.splash;
 
 import com.example.myapplication.mvp.ILifeCycle;
 import com.example.myapplication.mvp.IMvpView;
@@ -21,6 +21,7 @@ public interface ISplashActivityContract {
 
         void setTvTimer(String timer);
     }
+
     interface IPresenter extends ILifeCycle {
         void initTimer();
     }

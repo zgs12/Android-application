@@ -1,6 +1,5 @@
-package com.example.myapplication;
+package com.example.myapplication.splash;
 
-import com.example.myapplication.mvp.IMvpView;
 import com.example.myapplication.mvp.base.BaseMvpPresenter;
 
 public class SplashTimerPresenter extends BaseMvpPresenter<ISplashActivityContract.IView> implements ISplashActivityContract.IPresenter {

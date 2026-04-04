@@ -1,7 +1,8 @@
-package com.example.myapplication;
+package com.example.myapplication.base;
 
 import android.os.Bundle;
 
+import com.example.myapplication.ViewInject;
 import com.example.myapplication.mvp.view.LifeCycleMvpActivity;
 
 public abstract class BaseActivity extends LifeCycleMvpActivity {

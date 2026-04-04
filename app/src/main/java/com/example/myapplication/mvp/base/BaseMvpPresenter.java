@@ -2,6 +2,10 @@ package com.example.myapplication.mvp.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.myapplication.mvp.IMvpView;
 import com.example.myapplication.mvp.presenter.LifeCircleMvpPresenter;
@@ -16,7 +20,7 @@ public abstract class BaseMvpPresenter<T extends IMvpView>  extends LifeCircleMv
     }
 
     @Override
-    public void onActivityCreated(Bundle saveInstanceState, Intent intent, Bundle getArguments) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
     }
 
