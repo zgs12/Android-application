@@ -23,7 +23,6 @@ public class CustomCountDownTimer implements Runnable {
         if (isRun) {
             if (countDownHandler != null) {
                 countDownHandler.onTicker(countDowntime);
-
             }
             if  (countDowntime == 0) {
                 cancel();

@@ -8,11 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.VideoView;
 
-import org.w3c.dom.Text;
+import com.example.myapplication.databinding.ActivitySplashBinding;
 
-public class SplashActivity extends AppCompatActivity {
+
+
+public class SplashActivity extends BaseActivity {
     private FullScreenVideoView mVideoView;
     private TextView mTvTimer;
     private CustomCountDownTimer timer;
@@ -20,9 +21,10 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        mTvTimer = (TextView) findViewById(R.id.tv_timer);
-        mVideoView = (FullScreenVideoView) findViewById(R.id.vv_play);
+        ActivitySplashBinding binding = ActivitySplashBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        mTvTimer = binding.tvTimer;
+        mVideoView = binding.vvPlay;
         mVideoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.sun));
         mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
@@ -56,7 +58,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 mTvTimer.setText("跳过");
-
             }
         });
         timer.start();
