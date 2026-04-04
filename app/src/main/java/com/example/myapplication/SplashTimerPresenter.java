@@ -1,6 +1,11 @@
 package com.example.myapplication;
 
-public class SplashTimerPresenter {
+import com.example.myapplication.mvp.CustomCountDownTimer;
+import com.example.myapplication.SplashActivity;
+import com.example.myapplication.mvp.IMvpView;
+import com.example.myapplication.mvp.base.BaseMvpPresenter;
+
+public class SplashTimerPresenter extends BaseMvpPresenter {
 
     private CustomCountDownTimer timer;
     private final SplashActivity mActivity;
@@ -27,5 +32,16 @@ public class SplashTimerPresenter {
 
     public void cancel() {
         timer.cancel();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cancel();
+    }
+
+    @Override
+    protected IMvpView getEmptyView() {
+        return null;
     }
 }

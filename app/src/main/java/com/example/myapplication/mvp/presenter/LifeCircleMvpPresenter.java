@@ -1,4 +1,7 @@
-package com.example.myapplication;
+package com.example.myapplication.mvp.presenter;
+
+import com.example.myapplication.mvp.ILifeCycle;
+import com.example.myapplication.mvp.IMvpView;
 
 import java.lang.ref.WeakReference;
 
