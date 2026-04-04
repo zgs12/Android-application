@@ -16,7 +16,6 @@ public class CustomCountDownTimer implements Runnable {
         this.time = time;
         this.countDowntime = time;
         this.countDownHandler = countDownHandler;
-        handler.postDelayed(this, 1000);
     }
     @Override
     public void run() {
@@ -30,7 +29,7 @@ public class CustomCountDownTimer implements Runnable {
                     countDownHandler.onFinish();
                 }
             } else {
-                countDowntime = time--;
+                countDowntime--;
                 handler.postDelayed(this, 1000);
             }
 

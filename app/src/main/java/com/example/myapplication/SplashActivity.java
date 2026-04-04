@@ -7,25 +7,47 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.myapplication.databinding.ActivitySplashBinding;
 
 
-
+@ViewInject(mainlayoutid = R.layout.activity_splash)
 public class SplashActivity extends BaseActivity {
     private FullScreenVideoView mVideoView;
     private TextView mTvTimer;
-    private CustomCountDownTimer timer;
+    private com.example.myapplication.databinding.ActivitySplashBinding binding;
+    private SplashTimerPresenter timerPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivitySplashBinding binding = ActivitySplashBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        ViewGroup content = findViewById(android.R.id.content);
+        binding = ActivitySplashBinding.bind(content.getChildAt(0));
         mTvTimer = binding.tvTimer;
         mVideoView = binding.vvPlay;
+        initTimerPrensenter();
+        initListener();
+        initVideo();
+
+
+
+    }
+
+    private void initTimerPrensenter() {
+        timerPresenter = new SplashTimerPresenter(this);
+        timerPresenter.initTimer();
+    }
+
+
+
+    private void initVideo() {
         mVideoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.sun));
+
+    }
+
+    private void initListener() {
         mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
@@ -48,25 +70,16 @@ public class SplashActivity extends BaseActivity {
 
             }
         });
-        timer = new CustomCountDownTimer(5, new CustomCountDownTimer.ICountDownHandler() {
-
-            @Override
-            public void onTicker(int time) {
-                mTvTimer.setText(time + "秒");
-            }
-
-            @Override
-            public void onFinish() {
-                mTvTimer.setText("跳过");
-            }
-        });
-        timer.start();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timer.cancel();
+        timerPresenter.cancel();
+    }
+
+    public void setTvTimer(String s) {
+        mTvTimer.setText(s);
     }
 }
 
