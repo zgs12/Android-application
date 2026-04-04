@@ -21,6 +21,11 @@ public class SplashActivity extends BaseActivity implements ISplashActivityContr
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void bindView() {
         ViewGroup content = findViewById(android.R.id.content);
         binding = ActivitySplashBinding.bind(content.getChildAt(0));
         mTvTimer = binding.tvTimer;
@@ -28,9 +33,6 @@ public class SplashActivity extends BaseActivity implements ISplashActivityContr
         initTimerPrensenter();
         initListener();
         initVideo();
-
-
-
     }
 
     private void initTimerPrensenter() {

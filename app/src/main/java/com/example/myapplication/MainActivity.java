@@ -17,6 +17,10 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void bindView() {
         ViewGroup content = findViewById(android.R.id.content);
         binding = ActivityMainBinding.bind(content.getChildAt(0));
         changeAnime(binding.rgMainBottom, binding.rgMainTop);
@@ -35,7 +39,6 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-
     }
 
     private void changeAnime(RadioGroup gone, RadioGroup show) {

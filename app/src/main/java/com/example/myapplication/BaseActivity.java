@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.example.myapplication.mvp.view.LifeCycleMvpActivity;
 
-public class BaseActivity extends LifeCycleMvpActivity {
+public abstract class BaseActivity extends LifeCycleMvpActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -13,10 +13,13 @@ public class BaseActivity extends LifeCycleMvpActivity {
             int mainLayout = annotation.mainlayoutid();
             if (mainLayout > 0) {
                 setContentView(mainLayout);
+                bindView();
             } else {
                 throw new RuntimeException("mainlayoutid() must be > 0");
             }
         }
     }
+
+    public abstract void bindView();
 
 }
