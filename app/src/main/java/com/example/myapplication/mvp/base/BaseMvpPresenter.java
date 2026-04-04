@@ -7,6 +7,9 @@ import com.example.myapplication.mvp.IMvpView;
 import com.example.myapplication.mvp.presenter.LifeCircleMvpPresenter;
 
 public abstract class BaseMvpPresenter<T extends IMvpView>  extends LifeCircleMvpPresenter<T> {
+    public BaseMvpPresenter(T view) {
+        super(view);
+    }
     @Override
     public void onCreate(Bundle saveInstanceState, Intent intent, Bundle getArguments) {
 
@@ -69,6 +72,11 @@ public abstract class BaseMvpPresenter<T extends IMvpView>  extends LifeCircleMv
 
     @Override
     public void attachView() {
+
+    }
+
+    @Override
+    public void onActivityCreate(Bundle savedInstanceState, Intent intent, Object o) {
 
     }
 

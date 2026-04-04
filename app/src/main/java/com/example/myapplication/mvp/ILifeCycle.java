@@ -20,4 +20,6 @@ public interface ILifeCycle {
     void onActivityResult(int requestCode, int resultCode, Intent data);
     void onSaveInstanceState(Bundle outState);
     void attachView();
+
+    void onActivityCreate(Bundle savedInstanceState, Intent intent, Object o);
 }

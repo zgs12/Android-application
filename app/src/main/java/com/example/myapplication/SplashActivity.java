@@ -12,14 +12,14 @@ import com.example.myapplication.databinding.ActivitySplashBinding;
 
 
 @ViewInject(mainlayoutid = R.layout.activity_splash)
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity implements ISplashActivityContract.IView{
     private FullScreenVideoView mVideoView;
     private TextView mTvTimer;
     private com.example.myapplication.databinding.ActivitySplashBinding binding;
-    private SplashTimerPresenter timerPresenter;
+    private ISplashActivityContract.IPresenter timerPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewGroup content = findViewById(android.R.id.content);
         binding = ActivitySplashBinding.bind(content.getChildAt(0));
@@ -70,11 +70,11 @@ public class SplashActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        timerPresenter.onDestroy();
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        timerPresenter.onDestroy();
+//    }
 
     public void setTvTimer(String s) {
         mTvTimer.setText(s);

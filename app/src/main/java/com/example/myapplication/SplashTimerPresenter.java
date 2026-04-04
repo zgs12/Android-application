@@ -1,17 +1,14 @@
 package com.example.myapplication;
 
-import com.example.myapplication.mvp.CustomCountDownTimer;
-import com.example.myapplication.SplashActivity;
 import com.example.myapplication.mvp.IMvpView;
 import com.example.myapplication.mvp.base.BaseMvpPresenter;
 
-public class SplashTimerPresenter extends BaseMvpPresenter {
+public class SplashTimerPresenter extends BaseMvpPresenter<ISplashActivityContract.IView> implements ISplashActivityContract.IPresenter {
 
     private CustomCountDownTimer timer;
-    private final SplashActivity mActivity;
 
-    public SplashTimerPresenter(SplashActivity activity) {
-        this.mActivity = activity;
+    public SplashTimerPresenter(ISplashActivityContract.IView activity) {
+        super(activity);
     }
 
     public void initTimer() {
@@ -19,12 +16,12 @@ public class SplashTimerPresenter extends BaseMvpPresenter {
 
             @Override
             public void onTicker(int time) {
-                mActivity.setTvTimer(time + "秒");
+                getView().setTvTimer(time + "秒");
             }
 
             @Override
             public void onFinish() {
-                mActivity.setTvTimer("跳过");
+                getView().setTvTimer("跳过");
             }
         });
         timer.start();
@@ -40,8 +37,9 @@ public class SplashTimerPresenter extends BaseMvpPresenter {
         cancel();
     }
 
+    // 防止空指针
     @Override
-    protected IMvpView getEmptyView() {
-        return null;
+    protected ISplashActivityContract.IView getEmptyView() {
+        return ISplashActivityContract.emptyView;
     }
 }

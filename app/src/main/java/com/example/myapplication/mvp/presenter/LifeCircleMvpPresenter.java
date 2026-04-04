@@ -2,6 +2,7 @@ package com.example.myapplication.mvp.presenter;
 
 import com.example.myapplication.mvp.ILifeCycle;
 import com.example.myapplication.mvp.IMvpView;
+import com.example.myapplication.mvp.MvpControler;
 
 import java.lang.ref.WeakReference;
 
@@ -15,6 +16,8 @@ public abstract class LifeCircleMvpPresenter<T extends IMvpView> implements ILif
     protected LifeCircleMvpPresenter(IMvpView iMvpView) {
         super();
         attachView(iMvpView);
+        MvpControler mvpControler = iMvpView.getMvpControler();
+        mvpControler.savePresenter(this);
     }
 
     private void attachView(IMvpView iMvpView) {

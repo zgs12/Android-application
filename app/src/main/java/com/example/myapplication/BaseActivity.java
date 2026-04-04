@@ -2,11 +2,11 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplication.mvp.view.LifeCycleMvpActivity;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends LifeCycleMvpActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewInject annotation = this.getClass().getAnnotation(ViewInject.class);
         if (annotation != null) {

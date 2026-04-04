@@ -15,7 +15,7 @@ public class MainActivity extends BaseActivity {
     private com.example.myapplication.databinding.ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewGroup content = findViewById(android.R.id.content);
         binding = ActivityMainBinding.bind(content.getChildAt(0));
