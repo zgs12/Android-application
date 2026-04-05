@@ -15,7 +15,7 @@ import com.example.myapplication.mvp.view.LifeCycleMvpFragment;
 
 public abstract class BaseFragment extends LifeCycleMvpFragment {
 
-    private Context mContext;
+    protected Context mContext;
 
     @Override
     public void onAttach(@NonNull Context context) {
