@@ -3,10 +3,10 @@ package com.example.myapplication.main;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.R;
-import com.example.myapplication.main.shanghai.BeiJingiFragment;
-import com.example.myapplication.main.shanghai.HangZhouFragment;
+import com.example.myapplication.main.beijing.BeiJingiFragment;
+import com.example.myapplication.main.hangzhou.HangZhouFragment;
 import com.example.myapplication.main.shanghai.ShangHaiFragment;
-import com.example.myapplication.main.shanghai.ShenZhenFragment;
+import com.example.myapplication.main.shenzhen.ShenZhenFragment;
 import com.example.myapplication.mvp.base.BaseMvpPresenter;
 
 public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContract.IView> implements IMainActivityContract.IPresenter {
@@ -15,6 +15,17 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
     private int mCurrentFragmentIndex;
     private Fragment[] mFragments = new Fragment[4];
     private int mCurrentCheckedId;
+    private int mTopPosition;
+    private int mBottomPosition;
+
+    public int getmTopPosition() {
+        return mTopPosition;
+    }
+
+    public int getmBottomPosition() {
+        return mBottomPosition;
+    }
+
 
     public MainActivityPresenter(IMainActivityContract.IView view) {
         super(view);
@@ -57,15 +68,19 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
         switch (mCurrentFragmentIndex) {
             case 0:
                 mCurrentCheckedId = R.id.rg_main_shanghai;
+                mTopPosition = 0;
                 break;
             case 1:
                 mCurrentCheckedId = R.id.rg_main_hangzhou;
+                mTopPosition = 1;
                 break;
             case 2:
                 mCurrentCheckedId = R.id.rg_main_beijing;
+                mBottomPosition = 2;
                 break;
             case 3:
                 mCurrentCheckedId = R.id.rg_main_shenzhen;
+                mBottomPosition = 3;
                 break;
 
         }

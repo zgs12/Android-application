@@ -1,4 +1,4 @@
-package com.example.myapplication.main.shanghai;
+package com.example.myapplication.main.beijing;
 
 import android.view.View;
 

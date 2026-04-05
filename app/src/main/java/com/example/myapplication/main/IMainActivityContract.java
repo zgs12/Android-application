@@ -48,7 +48,8 @@ public interface IMainActivityContract {
 
         void replaceFragment(int i);
 
-//        void initHomeFragment();
+        int getmTopPosition();
+        int getmBottomPosition();
     }
 
 }

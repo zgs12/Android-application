@@ -14,9 +14,10 @@ import com.example.myapplication.R;
 import com.example.myapplication.ViewInject;
 import com.example.myapplication.base.BaseActivity;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.main.tools.MainConstantTool;
 
 @ViewInject(mainlayoutid = R.layout.activity_main)
-public class MainActivity extends BaseActivity implements IMainActivityContract.IView{
+public class MainActivity extends BaseActivity implements IMainActivityContract.IView {
     IMainActivityContract.IPresenter mPresenter = new MainActivityPresenter(this);
     private Boolean isChangeTopOrBottom = false;
     private com.example.myapplication.databinding.ActivityMainBinding binding;
@@ -44,11 +45,11 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     private void initListener() {
         binding.facMainHome.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                switch(v.getId()){
+            public void onClick(View v) {
+                switch (v.getId()) {
                     case R.id.fac_main_home:
                         isChangeTopOrBottom = !isChangeTopOrBottom;
-                        if(isChangeTopOrBottom){
+                        if (isChangeTopOrBottom) {
                             changeAnime(binding.rgMainTop, binding.rgMainBottom);
                             handleTopPosition();
                         } else {
@@ -62,50 +63,51 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
         binding.rgMainShanghai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.replaceFragment(0);
+                mPresenter.replaceFragment(MainConstantTool.SHANHAI);
             }
         });
         binding.rgMainHangzhou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.replaceFragment(1);
+                mPresenter.replaceFragment(MainConstantTool.HANGZHOU);
             }
 
         });
         binding.rgMainBeijing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.replaceFragment(2);
+                mPresenter.replaceFragment(MainConstantTool.BEIJING);
             }
 
         });
         binding.rgMainShenzhen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.replaceFragment(3);
+                mPresenter.replaceFragment(MainConstantTool.SHENZHEN);
             }
 
         });
     }
 
     private void handleBottomPosition() {
-        if (mPresenter.getCurrentCheckedIndex() > 1) {
-            mPresenter.replaceFragment(0);
+        if (mPresenter.getmTopPosition() != MainConstantTool.HANGZHOU) {
+            mPresenter.replaceFragment(MainConstantTool.SHANHAI);
             binding.rgMainShanghai.setChecked(true);
         } else {
-            mPresenter.replaceFragment(2);
-            binding.rgMainBeijing.setChecked(true);
+            mPresenter.replaceFragment(MainConstantTool.HANGZHOU);
+            binding.rgMainHangzhou.setChecked(true);
         }
     }
 
     private void handleTopPosition() {
-        if (mPresenter.getCurrentCheckedIndex() < 2){
-            mPresenter.replaceFragment(2);
+        if (mPresenter.getmBottomPosition() != MainConstantTool.SHENZHEN) {
+            mPresenter.replaceFragment(MainConstantTool.BEIJING);
             binding.rgMainBeijing.setChecked(true);
         } else {
-            mPresenter.replaceFragment(0);
-            binding.rgMainShanghai.setChecked(true);
+            mPresenter.replaceFragment(MainConstantTool.SHENZHEN);
+            binding.rgMainShenzhen.setChecked(true);
         }
+
     }
 
     private void changeAnime(RadioGroup gone, RadioGroup show) {
