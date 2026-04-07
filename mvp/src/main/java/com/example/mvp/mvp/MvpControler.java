@@ -1,4 +1,4 @@
-package com.example.myapplication.mvp;
+package com.example.mvp.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.mvp.presenter.LifeCircleMvpPresenter;
+import com.example.mvp.mvp.presenter.LifeCircleMvpPresenter;
 
 import java.util.HashSet;
 import java.util.Iterator;

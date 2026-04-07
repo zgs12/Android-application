@@ -2,12 +2,13 @@ package com.example.myapplication.main;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.mvp.mvp.base.BaseMvpPresenter;
 import com.example.myapplication.R;
 import com.example.myapplication.main.beijing.BeiJingiFragment;
 import com.example.myapplication.main.hangzhou.HangZhouFragment;
 import com.example.myapplication.main.shanghai.ShangHaiFragment;
 import com.example.myapplication.main.shenzhen.ShenZhenFragment;
-import com.example.myapplication.mvp.base.BaseMvpPresenter;
+
 
 public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContract.IView> implements IMainActivityContract.IPresenter {
 

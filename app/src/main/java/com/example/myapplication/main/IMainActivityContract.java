@@ -2,9 +2,9 @@ package com.example.myapplication.main;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.mvp.ILifeCycle;
-import com.example.myapplication.mvp.IMvpView;
-import com.example.myapplication.mvp.MvpControler;
+import com.example.mvp.mvp.ILifeCycle;
+import com.example.mvp.mvp.IMvpView;
+import com.example.mvp.mvp.MvpControler;
 
 
 public interface IMainActivityContract {

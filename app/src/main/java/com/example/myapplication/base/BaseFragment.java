@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mvp.mvp.view.LifeCycleMvpFragment;
 import com.example.myapplication.ViewInject;
-import com.example.myapplication.mvp.view.LifeCycleMvpActivity;
-import com.example.myapplication.mvp.view.LifeCycleMvpFragment;
+
 
 public abstract class BaseFragment extends LifeCycleMvpFragment {
 

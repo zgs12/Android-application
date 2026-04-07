@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Shanghaibean {
     private  int mItemType = IShanghaiItemType.VERTICAL;
     private  String mDec;
-    private  boolean isShowImg;
+    private  boolean isShowImg = true;
 
     private ArrayList<Shanghaibean> data;
 

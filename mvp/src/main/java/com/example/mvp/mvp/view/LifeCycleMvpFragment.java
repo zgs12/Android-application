@@ -1,4 +1,4 @@
-package com.example.myapplication.mvp.view;
+package com.example.mvp.mvp.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,10 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.mvp.IMvpView;
-import com.example.myapplication.mvp.MvpControler;
+import com.example.mvp.mvp.IMvpView;
+import com.example.mvp.mvp.MvpControler;
 
 public class LifeCycleMvpFragment extends Fragment implements IMvpView {
 

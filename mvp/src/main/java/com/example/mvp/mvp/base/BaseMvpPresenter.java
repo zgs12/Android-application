@@ -1,4 +1,4 @@
-package com.example.myapplication.mvp.base;
+package com.example.mvp.mvp.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.mvp.IMvpView;
-import com.example.myapplication.mvp.presenter.LifeCircleMvpPresenter;
+import com.example.mvp.mvp.IMvpView;
+import com.example.mvp.mvp.presenter.LifeCircleMvpPresenter;
 
 public abstract class BaseMvpPresenter<T extends IMvpView>  extends LifeCircleMvpPresenter<T> {
     public BaseMvpPresenter(T view) {

@@ -1,15 +1,14 @@
-package com.example.myapplication.mvp.view;
+package com.example.mvp.mvp.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.mvp.IMvpView;
-import com.example.myapplication.mvp.MvpControler;
+import com.example.mvp.mvp.IMvpView;
+import com.example.mvp.mvp.MvpControler;
 
 public class LifeCycleMvpActivity extends AppCompatActivity implements IMvpView {
 

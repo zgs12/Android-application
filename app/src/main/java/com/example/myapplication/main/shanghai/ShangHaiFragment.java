@@ -33,7 +33,7 @@ public class ShangHaiFragment extends BaseFragment {
 
     private void initRecycleView() {
         binding.shanghaiRecycleview.setLayoutManager(new LinearLayoutManager(mContext));
-        binding.shanghaiRecycleview.setAdapter(new ShanghaiAdapter(mContext, ShanghaiDataManager.getData()));
+        binding.shanghaiRecycleview.setAdapter(new ShanghaiAdapter(mContext, ShanghaiDataManager.getData(), false));
     }
 
     private void initListener() {

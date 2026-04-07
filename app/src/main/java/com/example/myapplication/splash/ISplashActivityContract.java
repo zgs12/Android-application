@@ -1,8 +1,9 @@
 package com.example.myapplication.splash;
 
-import com.example.myapplication.mvp.ILifeCycle;
-import com.example.myapplication.mvp.IMvpView;
-import com.example.myapplication.mvp.MvpControler;
+import com.example.mvp.mvp.ILifeCycle;
+import com.example.mvp.mvp.IMvpView;
+import com.example.mvp.mvp.MvpControler;
+
 
 public interface ISplashActivityContract {
     IView emptyView = new IView() {
